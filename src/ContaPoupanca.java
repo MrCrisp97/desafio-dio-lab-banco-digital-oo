@@ -1,5 +1,7 @@
 
 public class ContaPoupanca extends Conta {
+	
+	private static double SELIC = 0.005;
 
 	public ContaPoupanca(Cliente cliente) {
 		super(cliente);
@@ -7,7 +9,17 @@ public class ContaPoupanca extends Conta {
 
 	@Override
 	public void imprimirExtrato() {
-		System.out.println("=== Extrato Conta PoupanÁa ===");
+		System.out.println("=== Extrato Conta PoupanÔøΩa ===");
 		super.imprimirInfosComuns();
 	}
+
+	public void conferirRendimento(int dias){
+		double rendimento = 0;
+		if (this.saldo > 0)
+				rendimento = (SELIC * (dias/30))*saldo;	
+		
+		System.out.println("O rendimento da conta em " + dias + " dias, ser√° de R$" + rendimento);
+
+	}
+
 }
